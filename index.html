@@ -1,3 +1,4 @@
+<!--https://humorliang.github.io/datatistWeb/-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,8 +33,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <!--                            <a href="#"> </a>
-                                                <div class="info-block"><i class="fa fa-map"></i>701 Old York Drive Richmond USA.</div>-->
                 </div>
                 <div class="col-md-6">
                     <div class="social-grid">
@@ -78,9 +77,10 @@
                             </div>
                             <div class="collapse navigation navbar-collapse navbar-ex1-collapse remove-space">
                                 <ul class="list-unstyled nav1 cl-effect-10">
-                                    <li><a data-hover="Home" class="active"><span>Home</span></a></li>
-                                    <li><a data-hover="About" href="about.html"><span>About</span></a></li>
-                                    <li><a data-hover="Rooms" href="rooms.html"><span>Rooms</span></a></li>
+                                    <li><a id="homeBtn" data-hover="Home" class="active"><span>Home</span></a></li>
+                                    <li><a id="aboutBtn" data-hover="About" href="about.html"><span>About</span></a>
+                                    </li>
+                                    <li><a id="roomBtn" data-hover="Rooms" href="rooms.html"><span>Rooms</span></a></li>
                                     <li><a data-hover="Gallery" href="gallery.html"><span>Gallery</span></a></li>
                                     <li><a data-hover="Dinning" href="dinning.html"><span>Dinning</span></a></li>
                                     <li><a data-hover="News" href="news.html"><span>News</span></a></li>
@@ -541,7 +541,25 @@
         <span><i aria-hidden="true" class="fa fa-angle-up fa-lg"></i></span>
         <span>Top</span>
     </a>
-
 </div>
 </body>
+<script>
+    var homeBtn = document.getElementById("homeBtn");
+    var aboutBtn = document.getElementById("aboutBtn");
+
+    homeBtn.onclick = function () {
+        var mjson = {
+            "元旦": "五折"
+        };
+        dtTracker('search', '房间', false, false, mjson);
+    };
+
+    aboutBtn.onclick = function () {
+        //可以在任意位置记录用户行为或其他数据
+        var mjson = {
+            "type": "房间类型"
+        };
+        dtTracker('customerTrack', 'aboutEvent', mjson);
+    }
+</script>
 </html>
